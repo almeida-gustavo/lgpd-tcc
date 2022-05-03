@@ -6,6 +6,12 @@ class Question extends Model {
       {
         question: Sequelize.STRING,
         section: Sequelize.STRING,
+        options: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return ['Sim', 'Não', 'Talvez'];
+          },
+        },
       },
       { sequelize }
     );
