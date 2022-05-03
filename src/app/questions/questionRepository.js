@@ -1,0 +1,20 @@
+import Question from '../../database/models/Question';
+
+class QuestionRepository {
+  async listQuestions() {
+    // @TODO: ver como que faz para agrupar juntos em sql ao inves de ficar fazendo o oder
+    const questions = await Question.findAll({
+      attributes: {
+        exclude: ['createdAt', 'updatedAt'],
+      },
+    });
+
+    const orderedQuestions = questions.sort((a, b) =>
+      a.section.localeCompare(b.section)
+    );
+
+    return orderedQuestions;
+  }
+}
+
+export default QuestionRepository;

@@ -6,10 +6,11 @@ import City from './models/address/City';
 import Country from './models/address/Country';
 import Address from './models/address/Address';
 import Company from './models/Company';
+import Question from './models/Question';
 
 import databaseConfig from '../config/database';
 
-const models = [User, Country, State, City, Address, Company];
+const models = [User, Country, State, City, Address, Company, Question];
 
 class Database {
   constructor() {
