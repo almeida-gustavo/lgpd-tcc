@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      address: {
+      address_id: {
         type: Sequelize.INTEGER,
         references: { model: 'addresses', key: 'id' },
         onUpdate: 'CASCADE',

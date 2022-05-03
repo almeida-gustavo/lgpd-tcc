@@ -29,6 +29,11 @@ class StateRepository {
 
     return cities;
   }
+
+  async findCityByid(id) {
+    const city = await City.findByPk(id);
+    return city;
+  }
 }
 
 export default StateRepository;

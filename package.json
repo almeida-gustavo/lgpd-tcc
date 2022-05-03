@@ -20,7 +20,8 @@
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

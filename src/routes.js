@@ -1,13 +1,11 @@
 import { addressController } from './app/address/addressController';
+import { userController } from './app/user/userController';
 
 const { Router } = require('express');
 
 const expressRoutes = new Router();
 
 expressRoutes.use('/address', addressController);
-
-expressRoutes.get('', (req, res) => {
-  return res.send('eai');
-});
+expressRoutes.use('/user', userController);
 
 export default expressRoutes;

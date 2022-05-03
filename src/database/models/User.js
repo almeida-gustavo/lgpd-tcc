@@ -7,9 +7,10 @@ class User extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        cpf: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
-        provider: Sequelize.BOOLEAN,
+        isAdmin: Sequelize.BOOLEAN,
       },
       { sequelize }
     );
@@ -20,6 +21,13 @@ class User extends Model {
     });
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Company, {
+      foreignKey: 'companyId',
+      as: 'company',
+    });
   }
 
   checkPassword(password) {
