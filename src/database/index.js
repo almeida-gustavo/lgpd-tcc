@@ -1,10 +1,14 @@
 import Sequelize from 'sequelize';
 
 import User from './models/User';
+import State from './models/address/State';
+import City from './models/address/City';
+import Country from './models/address/Country';
+import Address from './models/address/Address';
 
 import databaseConfig from '../config/database';
 
-const models = [User];
+const models = [User, Country, State, City, Address];
 
 class Database {
   constructor() {

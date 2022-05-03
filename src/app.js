@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import express from 'express';
 import cors from 'cors';
-// import routes from './routes';
+import routes from './routes';
 
 import './database';
 
@@ -20,7 +20,7 @@ class App {
   }
 
   routes() {
-    // this.server.use(routes);
+    this.server.use(routes);
   }
 }
 
