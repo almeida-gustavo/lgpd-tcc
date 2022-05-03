@@ -1,0 +1,54 @@
+import { generateErrorReturn } from '../../utils/exceptions/expressReturnError';
+import AnswerValidation from './answerValidation';
+
+class AnswerService {
+  constructor({ answerRepository }) {
+    this.answerRepository = answerRepository;
+    this.answerValidation = new AnswerValidation({ answerRepository });
+  }
+
+  async listAnswer(req, res) {
+    const { companyId } = req.params;
+
+    try {
+      const answers = await this.answerRepository.listAnswers(companyId);
+      return res.status(200).send(answers);
+    } catch (err) {
+      return generateErrorReturn({
+        res,
+        status: 400,
+        errUrl: req.url,
+        errors: err.message,
+      });
+    }
+  }
+
+  async updateAnswers(req, res) {
+    try {
+      const validationErrors = await this.answerValidation.updateAnswers(req);
+
+      if (validationErrors.length > 0) {
+        return generateErrorReturn({
+          res,
+          status: 400,
+          errUrl: req.url,
+          errors: validationErrors,
+        });
+      }
+
+      const answers = await this.answerRepository.updateAnswers(req);
+      return res.status(201).send(answers);
+    } catch (err) {
+      console.log('meu erro', err.errors);
+
+      return generateErrorReturn({
+        res,
+        status: 400,
+        errUrl: req.url,
+        errors: err.message,
+      });
+    }
+  }
+}
+
+export default AnswerService;

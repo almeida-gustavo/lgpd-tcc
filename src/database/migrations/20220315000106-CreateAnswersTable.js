@@ -14,6 +14,7 @@ module.exports = {
       answer_version: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        autoIncrement: true,
       },
       question_id: {
         type: Sequelize.INTEGER,
@@ -25,6 +26,13 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
+      company_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'companies', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,

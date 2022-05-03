@@ -6,21 +6,10 @@ class CompanyRepository {
     return company;
   }
 
-  // async listCitiesInCompany({ CompanyId }) {
-  //   const cities = await City.findAll({
-  //     attributes: ['id', 'name'],
-  //     include: [
-  //       {
-  //         model: Company,
-  //         as: 'Company',
-  //         where: { id: CompanyId },
-  //         attributes: ['id', 'name', 'initials'],
-  //       },
-  //     ],
-  //   });
-
-  //   return cities;
-  // }
+  async findById(id) {
+    const company = await Company.findByPk(id);
+    return company;
+  }
 }
 
 export default CompanyRepository;
