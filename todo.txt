@@ -1,3 +1,0 @@
-- Rota de login
-- Token de autenticacao
-- Proteger rotas de Post e Get de respostas
