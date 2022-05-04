@@ -21,6 +21,9 @@ DB_PORT=5432
 
 # api
 API_PORT=3000
+
+#token
+APP_SECRET=teste
 ```
 
 - Para rodar o projeto
@@ -33,7 +36,7 @@ API_PORT=3000
 
 ## ROTAS
 
-- **GET** http://localhost:3000/answer/:idDaEmpreesa - Listar as perguntas com as Respostas
+- **GET** http://localhost:3000/answer/:idDaEmpreesa - Listar as perguntas com as Respostas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
 - **GET** http://localhost:3000/address/states - Listar os estados
 - **GET** http://localhost:3000/states/:idDoEstado/cities - Listar as cidades no estado especificado
 - **GET** http://localhost:3000/user/:idDoUsuario - Listar informacoes do usuario
@@ -61,7 +64,7 @@ API_PORT=3000
 }
 ```
 
-- **POST** http://localhost:3000/answer/:idDaEmpreesa - Cria resposta para as perguntas
+- **POST** http://localhost:3000/answer/:idDaEmpreesa - Cria resposta para as perguntas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
 
 ```
 {
@@ -71,5 +74,14 @@ API_PORT=3000
 		{"answer": "Talvez", "questionId": 3},
 		{"answer": "Sim", "questionId": 4}
 	]
+}
+```
+
+- **POST** http://localhost:3000/login - Gera o token para usar nas rotas
+
+```
+{
+  "email" : "see@email.com",
+	"password": "1234"
 }
 ```
