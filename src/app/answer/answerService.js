@@ -22,7 +22,10 @@ class AnswerService {
         });
       }
 
-      const answers = await this.answerRepository.listAnswers(companyId);
+      const answers = await this.answerRepository.listAnswers(
+        companyId,
+        req.query.department
+      );
       return res.status(200).send(answers);
     } catch (err) {
       return generateErrorReturn({

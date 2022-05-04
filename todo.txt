@@ -1,9 +1,6 @@
 - Admin criar novo usuario para a empresa
-- Editar informacoes do perfil
-    nome, email, senha
+
 - Estatisticas % de conformidade
   geral e deparamento: baseado em respostas SIM
-- Listar por departamento as perguntas e respostas
-  Colocar um filtro
 - Rota para verificar se o token ainda ta valido
 

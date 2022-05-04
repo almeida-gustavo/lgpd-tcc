@@ -29,7 +29,7 @@ class AnswerValidation {
   async listAnswers(req) {
     const errors = [];
 
-    const { params, userCompanyId } = req;
+    const { params, userCompanyId, query } = req;
 
     const foundCompany = await this.companyRepository.findById(
       params.companyId
@@ -45,6 +45,12 @@ class AnswerValidation {
       errors.push(
         new FieldMessage('companyId', 'Você não pertence a essa empresa')
       );
+    }
+
+    if (!query.department) {
+      // errors.push(
+      //   new FieldMessage('query.department', 'Filtro department Obrigatório ')
+      // );
     }
 
     return errors;

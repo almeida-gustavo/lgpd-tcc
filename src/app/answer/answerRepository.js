@@ -2,12 +2,17 @@ import Answer from '../../database/models/Answer';
 import Question from '../../database/models/Question';
 
 class AnswerRepository {
-  async listAnswers(companyId) {
+  async listAnswers(companyId, department) {
+    const where = {};
+    if (department) {
+      where.department = department;
+    }
     const results = await Question.findAll({
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
       },
       order: [['department', 'ASC']],
+      where,
       include: [
         {
           model: Answer,

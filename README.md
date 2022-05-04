@@ -37,6 +37,7 @@ APP_SECRET=teste
 ## ROTAS
 
 - **GET** http://localhost:3000/answer/:idDaEmpreesa - Listar as perguntas com as Respostas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
+  - colocar o filtro department para ver apenas o departamento desejado
 - **GET** http://localhost:3000/address/states - Listar os estados
 - **GET** http://localhost:3000/states/:idDoEstado/cities - Listar as cidades no estado especificado
 - **GET** http://localhost:3000/user/:idDoUsuario - Listar informacoes do usuario
