@@ -14,7 +14,7 @@ userController.post('', userService.createUserAndCompany.bind(userService));
 userController.get('/:userId', userService.findUser.bind(userService));
 
 userController.put(
-  '/update',
+  '',
   authMiddleware,
   userService.updateUser.bind(userService)
 );

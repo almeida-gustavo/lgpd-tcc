@@ -85,3 +85,13 @@ APP_SECRET=teste
 	"password": "1234"
 }
 ```
+
+- **PUT** http://localhost:3000/user - Gera o token para usar nas rotas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
+
+```
+{
+	"name": "teste",
+	"email": "ssss@email.com",
+	"password": "12345"
+}
+```

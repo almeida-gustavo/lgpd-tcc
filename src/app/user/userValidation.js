@@ -36,7 +36,7 @@ const userSchema = yup.object().shape({
   company: companySchema,
 });
 
-class StateValidation {
+class UserValidation {
   constructor({ userRepository }) {
     this.userRepository = userRepository;
     this.stateRepository = new StateRepository();
@@ -101,6 +101,30 @@ class StateValidation {
 
     return errors;
   }
+
+  async updateUser(req) {
+    const errors = [];
+
+    const { body, userId } = req;
+
+    const { name, email } = body;
+
+    if (email) {
+      const foundUser = await this.userRepository.findByEmail(email);
+
+      if (foundUser && foundUser.id !== userId) {
+        errors.push(
+          new FieldMessage('email', 'Ja existe um usuario com esse email')
+        );
+      }
+    }
+
+    if (name && typeof name !== 'string') {
+      errors.push(new FieldMessage('name', 'Nome tem que ser string'));
+    }
+
+    return errors;
+  }
 }
 
-export default StateValidation;
+export default UserValidation;

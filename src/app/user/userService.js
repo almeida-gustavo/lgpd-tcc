@@ -63,7 +63,32 @@ class UserService {
     }
   }
 
-  async updateUser(req, res) {}
+  async updateUser(req, res) {
+    try {
+      const validationErrors = await this.userValdidation.updateUser(req);
+
+      if (validationErrors.length > 0) {
+        return generateErrorReturn({
+          res,
+          status: 400,
+          errUrl: req.url,
+          errors: validationErrors,
+        });
+      }
+
+      const user = await this.userRepository.updateUser(req);
+      return res.status(200).send(user);
+    } catch (err) {
+      console.log('meu erro', err.errors);
+
+      return generateErrorReturn({
+        res,
+        status: 400,
+        errUrl: req.url,
+        errors: err.message,
+      });
+    }
+  }
 }
 
 export default UserService;

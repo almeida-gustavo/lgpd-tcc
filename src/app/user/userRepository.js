@@ -34,6 +34,14 @@ class UserRepository {
 
     return user;
   }
+
+  async updateUser(req) {
+    const { userId, body } = req;
+
+    const user = await User.findByPk(userId);
+
+    return user.update({ ...body });
+  }
 }
 
 export default UserRepository;
