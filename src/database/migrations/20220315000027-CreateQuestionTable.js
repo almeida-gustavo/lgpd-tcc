@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      section: {
+      department: {
         type: Sequelize.STRING,
         allowNull: false,
       },

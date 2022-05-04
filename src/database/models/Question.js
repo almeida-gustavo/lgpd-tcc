@@ -5,7 +5,7 @@ class Question extends Model {
     super.init(
       {
         question: Sequelize.STRING,
-        section: Sequelize.STRING,
+        department: Sequelize.STRING,
         options: {
           type: Sequelize.VIRTUAL,
           get() {

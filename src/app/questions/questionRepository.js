@@ -10,7 +10,7 @@ class QuestionRepository {
     });
 
     const orderedQuestions = questions.sort((a, b) =>
-      a.section.localeCompare(b.section)
+      a.department.localeCompare(b.department)
     );
 
     return orderedQuestions;

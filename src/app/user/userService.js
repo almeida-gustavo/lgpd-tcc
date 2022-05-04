@@ -62,6 +62,8 @@ class UserService {
       });
     }
   }
+
+  async updateUser(req, res) {}
 }
 
 export default UserService;

@@ -7,7 +7,7 @@ class AnswerRepository {
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
       },
-      order: [['section', 'ASC']],
+      order: [['department', 'ASC']],
       include: [
         {
           model: Answer,
@@ -31,14 +31,14 @@ class AnswerRepository {
         answer: (result.answers[0] || {}).answer || null,
       };
 
-      if (formattedResult.has(result.section)) {
-        const existingValues = formattedResult.get(result.section);
-        formattedResult.set(result.section, [
+      if (formattedResult.has(result.department)) {
+        const existingValues = formattedResult.get(result.department);
+        formattedResult.set(result.department, [
           ...existingValues,
           formatedObject,
         ]);
       } else {
-        formattedResult.set(result.section, [formatedObject]);
+        formattedResult.set(result.department, [formatedObject]);
       }
     });
 
@@ -50,7 +50,7 @@ class AnswerRepository {
     for (const item of iteratorResult) {
       console.log(item);
       finalResult.push({
-        section: item[0],
+        department: item[0],
         questions: item[1],
       });
     }
