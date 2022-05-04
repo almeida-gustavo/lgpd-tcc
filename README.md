@@ -96,3 +96,5 @@ APP_SECRET=teste
 	"password": "12345"
 }
 ```
+
+- **POST** http://localhost:3000/login/check-token - verifica se o token ta valido (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)

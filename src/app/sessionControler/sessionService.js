@@ -5,7 +5,7 @@ import User from '../../database/models/User';
 import authConfig from '../../config/auth';
 
 class UserService {
-  async createUserAndCompany(req, res) {
+  async login(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string().required(),
       password: Yup.string().required(),
@@ -37,6 +37,12 @@ class UserService {
       token: jwt.sign({ id, companyId, email }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       }),
+    });
+  }
+
+  async checkToken(req, res) {
+    return res.status(200).json({
+      status: 'Token Valid',
     });
   }
 }
