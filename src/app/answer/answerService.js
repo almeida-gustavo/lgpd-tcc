@@ -11,6 +11,17 @@ class AnswerService {
     const { companyId } = req.params;
 
     try {
+      const validationErrors = await this.answerValidation.listAnswers(req);
+
+      if (validationErrors.length > 0) {
+        return generateErrorReturn({
+          res,
+          status: 400,
+          errUrl: req.url,
+          errors: validationErrors,
+        });
+      }
+
       const answers = await this.answerRepository.listAnswers(companyId);
       return res.status(200).send(answers);
     } catch (err) {

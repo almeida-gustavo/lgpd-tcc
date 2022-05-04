@@ -59,14 +59,14 @@ class AnswerRepository {
   }
 
   async updateAnswers(req) {
-    const { body, params } = req;
+    const { body, params, userId } = req;
 
     // O auto incremento do answer_version esta no banco
     const result = await Answer.bulkCreate(
       body.responses.map(r => ({
         ...r,
         companyId: params.companyId,
-        userId: 1,
+        userId,
       }))
     );
 

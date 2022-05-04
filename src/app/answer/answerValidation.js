@@ -26,10 +26,34 @@ class AnswerValidation {
     this.companyRepository = new CompanyRepository();
   }
 
+  async listAnswers(req) {
+    const errors = [];
+
+    const { params, userCompanyId } = req;
+
+    const foundCompany = await this.companyRepository.findById(
+      params.companyId
+    );
+
+    if (!foundCompany) {
+      errors.push(
+        new FieldMessage('params.companyId', 'Não existe empresa com esse id')
+      );
+    }
+
+    if (userCompanyId !== foundCompany.id) {
+      errors.push(
+        new FieldMessage('companyId', 'Você não pertence a essa empresa')
+      );
+    }
+
+    return errors;
+  }
+
   async updateAnswers(req) {
     const errors = [];
 
-    const { body, params } = req;
+    const { body, params, userCompanyId } = req;
 
     try {
       await updateAnswersSchema.validate(body, { abortEarly: false });
@@ -52,7 +76,11 @@ class AnswerValidation {
       );
     }
 
-    // Validar se o user eh realmente daquela empresa ou nao... pegar o company id do token que vai ser feito
+    if (userCompanyId !== foundCompany.id) {
+      errors.push(
+        new FieldMessage('companyId', 'Você não pertence a essa empresa')
+      );
+    }
 
     return errors;
   }
