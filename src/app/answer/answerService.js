@@ -63,6 +63,33 @@ class AnswerService {
       });
     }
   }
+
+  async getAnswerStatistics(req, res) {
+    const { companyId } = req.params;
+
+    try {
+      const validationErrors = await this.answerValidation.getStatistics(req);
+
+      if (validationErrors.length > 0) {
+        return generateErrorReturn({
+          res,
+          status: 400,
+          errUrl: req.url,
+          errors: validationErrors,
+        });
+      }
+
+      const answers = await this.answerRepository.getStatistics(companyId);
+      return res.status(200).send(answers);
+    } catch (err) {
+      return generateErrorReturn({
+        res,
+        status: 400,
+        errUrl: req.url,
+        errors: err.message,
+      });
+    }
+  }
 }
 
 export default AnswerService;

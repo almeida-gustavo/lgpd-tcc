@@ -90,6 +90,30 @@ class AnswerValidation {
 
     return errors;
   }
+
+  async getStatistics(req) {
+    const errors = [];
+
+    const { params, userCompanyId } = req;
+
+    const foundCompany = await this.companyRepository.findById(
+      params.companyId
+    );
+
+    if (!foundCompany) {
+      errors.push(
+        new FieldMessage('params.companyId', 'Não existe empresa com esse id')
+      );
+    }
+
+    if (foundCompany.id !== userCompanyId) {
+      errors.push(
+        new FieldMessage('companyId', 'Você não pertence a essa empresa')
+      );
+    }
+
+    return errors;
+  }
 }
 
 export default AnswerValidation;

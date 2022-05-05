@@ -1,5 +1,0 @@
-
-- Estatisticas % de conformidade
-  geral e deparamento: baseado em respostas SIM
-
-

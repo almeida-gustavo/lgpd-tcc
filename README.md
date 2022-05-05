@@ -109,3 +109,5 @@ APP_SECRET=teste
 	"cpf": "123.456.789-99"
 }
 ```
+
+- **GET** http://localhost:3000/answer/:idDaEmpreesa/statistics - Listar as estatisticas das perguntas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)

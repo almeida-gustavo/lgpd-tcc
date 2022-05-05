@@ -18,4 +18,9 @@ answerController.post(
   answerService.updateAnswers.bind(answerService)
 );
 
+answerController.get(
+  '/:companyId/statistics',
+  answerService.getAnswerStatistics.bind(answerService)
+);
+
 export { answerController };
