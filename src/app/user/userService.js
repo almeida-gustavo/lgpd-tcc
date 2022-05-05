@@ -89,6 +89,35 @@ class UserService {
       });
     }
   }
+
+  async createUserFromAdmin(req, res) {
+    try {
+      const validationErrors = await this.userValdidation.createUserFromAdmin(
+        req
+      );
+
+      if (validationErrors.length > 0) {
+        return generateErrorReturn({
+          res,
+          status: 400,
+          errUrl: req.url,
+          errors: validationErrors,
+        });
+      }
+
+      const user = await this.userRepository.createUserFromAdmin(req);
+      return res.status(201).send(user);
+    } catch (err) {
+      console.log('meu erro', err.errors);
+
+      return generateErrorReturn({
+        res,
+        status: 400,
+        errUrl: req.url,
+        errors: err.message,
+      });
+    }
+  }
 }
 
 export default UserService;

@@ -19,4 +19,10 @@ userController.put(
   userService.updateUser.bind(userService)
 );
 
+userController.post(
+  '/create-other',
+  authMiddleware,
+  userService.createUserFromAdmin.bind(userService)
+);
+
 export { userController };

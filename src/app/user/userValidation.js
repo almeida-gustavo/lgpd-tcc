@@ -36,6 +36,16 @@ const userSchema = yup.object().shape({
   company: companySchema,
 });
 
+const otherUserSchema = yup.object().shape({
+  name: yup.string().required('Campo Obrigatório'),
+  cpf: yup.string().required('Campo Obrigatório'),
+  email: yup
+    .string()
+    .email()
+    .required('Campo Obrigatório'),
+  password: yup.string().required('Campo Obrigatório'),
+});
+
 class UserValidation {
   constructor({ userRepository }) {
     this.userRepository = userRepository;
@@ -121,6 +131,38 @@ class UserValidation {
 
     if (name && typeof name !== 'string') {
       errors.push(new FieldMessage('name', 'Nome tem que ser string'));
+    }
+
+    return errors;
+  }
+
+  async createUserFromAdmin(req) {
+    const errors = [];
+
+    const { body } = req;
+
+    try {
+      await otherUserSchema.validate(body, { abortEarly: false });
+    } catch (err) {
+      err.inner.forEach(error => {
+        errors.push(new FieldMessage(error.path, error.message));
+      });
+
+      return errors;
+    }
+
+    const foundUser = await this.userRepository.findByEmail(body.email);
+
+    if (foundUser) {
+      errors.push(
+        new FieldMessage('email', 'Ja existe um usuario com esse email')
+      );
+    }
+
+    const foundUserByCpf = await this.userRepository.findbyCpf(body.cpf);
+
+    if (foundUserByCpf) {
+      errors.push(new FieldMessage('cpf', 'Ja existe um usuario com esse cpf'));
     }
 
     return errors;

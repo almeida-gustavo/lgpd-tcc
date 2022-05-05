@@ -17,6 +17,11 @@ class UserRepository {
     return user;
   }
 
+  async findbyCpf(cpf) {
+    const user = await User.findOne({ where: { cpf } });
+    return user;
+  }
+
   async createUserAndCompany(req) {
     const address = await Address.create(req.body.company.address);
     const company = await Company.create({
@@ -31,6 +36,23 @@ class UserRepository {
     });
 
     delete user.password_hash;
+
+    return user;
+  }
+
+  async createUserFromAdmin(req) {
+    const { userCompanyId } = req;
+    console.log(req);
+    const user = await User.create({
+      ...req.body,
+      companyId: userCompanyId,
+      isAdmin: false,
+    });
+
+    console.log('antes', user.password_hash);
+    delete user.password_hash;
+    user.password_hash = undefined;
+    console.log(user.password_hash);
 
     return user;
   }

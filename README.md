@@ -98,3 +98,14 @@ APP_SECRET=teste
 ```
 
 - **POST** http://localhost:3000/login/check-token - verifica se o token ta valido (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
+
+- **PUT** http://localhost:3000/user/create-other - Cria outros usuarios atraves do admin (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
+
+```
+{
+  "name": "gustavo",
+	"email": "aa1ssaa4sa@email.com",
+	"password": "1234",
+	"cpf": "123.456.789-99"
+}
+```

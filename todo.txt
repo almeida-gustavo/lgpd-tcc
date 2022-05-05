@@ -1,4 +1,3 @@
-- Admin criar novo usuario para a empresa
 
 - Estatisticas % de conformidade
   geral e deparamento: baseado em respostas SIM
