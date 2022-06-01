@@ -53,8 +53,6 @@ class AnswerService {
       const answers = await this.answerRepository.updateAnswers(req);
       return res.status(201).send(answers);
     } catch (err) {
-      console.log('meu erro', err.errors);
-
       return generateErrorReturn({
         res,
         status: 400,

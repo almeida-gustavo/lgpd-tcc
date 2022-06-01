@@ -53,7 +53,6 @@ class AnswerRepository {
 
     /* eslint-disable no-restricted-syntax */
     for (const item of iteratorResult) {
-      console.log(item);
       finalResult.push({
         department: item[0],
         questions: item[1],
@@ -98,8 +97,6 @@ class AnswerRepository {
     });
 
     const formattedResult = new Map();
-
-    console.log('antes');
 
     results.forEach(result => {
       const answer = (result.answers[0] || {}).answer || null;

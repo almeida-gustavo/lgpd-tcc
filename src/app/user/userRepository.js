@@ -35,24 +35,20 @@ class UserRepository {
       isAdmin: true,
     });
 
-    delete user.password_hash;
+    user.password_hash = undefined;
 
     return user;
   }
 
   async createUserFromAdmin(req) {
     const { userCompanyId } = req;
-    console.log(req);
     const user = await User.create({
       ...req.body,
       companyId: userCompanyId,
       isAdmin: false,
     });
 
-    console.log('antes', user.password_hash);
-    delete user.password_hash;
     user.password_hash = undefined;
-    console.log(user.password_hash);
 
     return user;
   }

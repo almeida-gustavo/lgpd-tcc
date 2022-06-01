@@ -61,8 +61,12 @@ class AnswerValidation {
 
     const { body, params, userCompanyId } = req;
 
+    const filteredResponses = body.responses.filter(b => b.answer !== null);
+
+    req.body.responses = filteredResponses;
+
     try {
-      await updateAnswersSchema.validate(body, { abortEarly: false });
+      await updateAnswersSchema.validate(req.body, { abortEarly: false });
     } catch (err) {
       console.log(err);
       err.inner.forEach(error => {

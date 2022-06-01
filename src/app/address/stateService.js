@@ -12,8 +12,6 @@ class StateService {
       const states = await this.stateRepository.listStates();
       return res.status(200).send(states);
     } catch (err) {
-      console.log('meu erro', err.errors);
-
       return generateErrorReturn({
         res,
         status: 400,

@@ -25,7 +25,7 @@ class UserService {
     if (!(await user.checkPassword(password)))
       return res.status(401).json({ error: 'Password does not match' });
 
-    const { id, name, companyId } = user;
+    const { id, name, companyId, isAdmin } = user;
 
     return res.json({
       user: {
@@ -33,8 +33,9 @@ class UserService {
         name,
         email,
         companyId,
+        isAdmin,
       },
-      token: jwt.sign({ id, companyId, email }, authConfig.secret, {
+      token: jwt.sign({ id, companyId, email, isAdmin }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       }),
     });

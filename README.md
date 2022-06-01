@@ -39,9 +39,9 @@ APP_SECRET=teste
 - **GET** http://localhost:3000/answer/:idDaEmpreesa - Listar as perguntas com as Respostas (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
   - colocar o filtro department para ver apenas o departamento desejado
 - **GET** http://localhost:3000/address/states - Listar os estados
-- **GET** http://localhost:3000/states/:idDoEstado/cities - Listar as cidades no estado especificado
+- **GET** http://localhost:3000/address/states/:idDoEstado/cities - Listar as cidades no estado especificado
 - **GET** http://localhost:3000/user/:idDoUsuario - Listar informacoes do usuario
-- **POST** http://localhost:3000/user - Criar usuario com corpo abaixo
+- **POST** http://localhost:3000/user - Criar usuario e empresa com corpo abaixo
 
 ```
 {
@@ -99,7 +99,7 @@ APP_SECRET=teste
 
 - **POST** http://localhost:3000/login/check-token - verifica se o token ta valido (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
 
-- **PUT** http://localhost:3000/user/create-other - Cria outros usuarios atraves do admin (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
+- **POST** http://localhost:3000/user/create-other - Cria outros usuarios atraves do admin (ROTA PRECISA DE TOKEN. Colocar o header: authorization: Bearer token)
 
 ```
 {
