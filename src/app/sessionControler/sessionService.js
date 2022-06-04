@@ -16,6 +16,10 @@ class UserService {
 
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Missing email or password' });
+    }
+
     const user = await User.findOne({
       where: { email },
     });
