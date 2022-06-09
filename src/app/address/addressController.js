@@ -8,6 +8,10 @@ const stateService = new StateService({
 
 const addressController = new Router();
 
+addressController.get('/', (req, res) => {
+  return res.status(200).send('ola meu amigo');
+});
+
 addressController.get('/states', stateService.list.bind(stateService));
 addressController.get(
   '/states/:stateId/cities',
