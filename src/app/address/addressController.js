@@ -9,6 +9,7 @@ const stateService = new StateService({
 const addressController = new Router();
 
 addressController.get('/', (req, res) => {
+  console.log('test');
   return res.status(200).send('ola meu amigo');
 });
 
