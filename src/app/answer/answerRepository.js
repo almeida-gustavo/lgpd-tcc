@@ -1,5 +1,5 @@
-import Answer from '../../database/models/Answer';
-import Question from '../../database/models/Question';
+import Answer from '../../database/models/Answer.js';
+import Question from '../../database/models/Question.js';
 
 class AnswerRepository {
   async listAnswers(companyId, department) {

@@ -1,6 +1,6 @@
-import User from '../../database/models/User';
-import Company from '../../database/models/Company';
-import Address from '../../database/models/address/Address';
+import User from '../../database/models/User.js';
+import Company from '../../database/models/Company.js';
+import Address from '../../database/models/address/Address.js';
 
 class UserRepository {
   async findByPk(userId) {

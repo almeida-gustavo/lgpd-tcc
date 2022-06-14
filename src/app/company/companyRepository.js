@@ -1,4 +1,4 @@
-import Company from '../../database/models/Company';
+import Company from '../../database/models/Company.js';
 
 class CompanyRepository {
   async findByCNPJ(cnpj) {

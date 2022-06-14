@@ -1,5 +1,5 @@
-import State from '../../database/models/address/State';
-import City from '../../database/models/address/City';
+import State from '../../database/models/address/State.js';
+import City from '../../database/models/address/City.js';
 
 class StateRepository {
   async findByPk(stateId) {

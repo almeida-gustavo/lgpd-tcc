@@ -1,10 +1,10 @@
 import * as yup from 'yup';
-import FieldMessage from '../../utils/exceptions/fieldmessage';
+import FieldMessage from '../../utils/exceptions/fieldmessage.js';
 
-import StateRepository from '../address/stateRepository';
-import CompanyRepository from '../company/companyRepository';
+import StateRepository from '../address/stateRepository.js';
+import CompanyRepository from '../company/companyRepository.js';
 
-import { idValid } from '../../utils/helpers/idValid';
+import { idValid } from '../../utils/helpers/idValid.js';
 
 const addressSchema = yup.object().shape({
   zipCode: yup.string().required('Campo Obrigatório'),

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import QuestionService from './questionsService';
-import QuestionRepository from './questionRepository';
+import QuestionService from './questionsService.js';
+import QuestionRepository from './questionRepository.js';
 
 const questionService = new QuestionService({
   questionsRepository: new QuestionRepository(),

@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import SessionService from './sessionService';
+import SessionService from './sessionService.js';
 
-import authMiddleware from '../../middlewares/auth';
+import authMiddleware from '../../middlewares/auth.js';
 
 const sessionServicee = new SessionService();
 

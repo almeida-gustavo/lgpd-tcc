@@ -1,5 +1,5 @@
-import FieldMessage from '../../utils/exceptions/fieldmessage';
-import { idValid } from '../../utils/helpers/idValid';
+import FieldMessage from '../../utils/exceptions/fieldmessage.js';
+import { idValid } from '../../utils/helpers/idValid.js';
 
 class StateValidation {
   constructor({ stateRepository }) {

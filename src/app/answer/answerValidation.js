@@ -1,7 +1,7 @@
 import * as yup from 'yup';
-import FieldMessage from '../../utils/exceptions/fieldmessage';
+import FieldMessage from '../../utils/exceptions/fieldmessage.js';
 
-import CompanyRepository from '../company/companyRepository';
+import CompanyRepository from '../company/companyRepository.js';
 
 const updateAnswersSchema = yup.object().shape({
   responses: yup

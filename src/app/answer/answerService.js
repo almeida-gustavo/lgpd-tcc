@@ -1,5 +1,5 @@
-import { generateErrorReturn } from '../../utils/exceptions/expressReturnError';
-import AnswerValidation from './answerValidation';
+import { generateErrorReturn } from '../../utils/exceptions/expressReturnError.js';
+import AnswerValidation from './answerValidation.js';
 
 class AnswerService {
   constructor({ answerRepository }) {

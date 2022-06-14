@@ -5,4 +5,4 @@ function ValidateException(status, message, path, errors = []) {
   this.errors = errors;
 }
 
-module.exports = ValidateException;
+export default ValidateException;

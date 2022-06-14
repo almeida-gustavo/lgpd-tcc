@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import UserRepository from './userRepository';
-import UserService from './userService';
+import UserRepository from './userRepository.js';
+import UserService from './userService.js';
 
-import authMiddleware from '../../middlewares/auth';
+import authMiddleware from '../../middlewares/auth.js';
 
 const userService = new UserService({
   userRepository: new UserRepository(),

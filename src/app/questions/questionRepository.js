@@ -1,4 +1,4 @@
-import Question from '../../database/models/Question';
+import Question from '../../database/models/Question.js';
 
 class QuestionRepository {
   async listQuestions() {

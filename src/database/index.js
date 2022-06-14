@@ -1,15 +1,15 @@
 import Sequelize from 'sequelize';
 
-import User from './models/User';
-import State from './models/address/State';
-import City from './models/address/City';
-import Country from './models/address/Country';
-import Address from './models/address/Address';
-import Company from './models/Company';
-import Question from './models/Question';
-import Answer from './models/Answer';
+import User from './models/User.js';
+import State from './models/address/State.js';
+import City from './models/address/City.js';
+import Country from './models/address/Country.js';
+import Address from './models/address/Address.js';
+import Company from './models/Company.js';
+import Question from './models/Question.js';
+import Answer from './models/Answer.js';
 
-import databaseConfig from '../config/database';
+import databaseConfig from '../config/database.js';
 
 const models = [User, Country, State, City, Address, Company, Question, Answer];
 

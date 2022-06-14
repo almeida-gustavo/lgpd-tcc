@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import StateRepository from './stateRepository';
-import StateService from './stateService';
+import StateRepository from './stateRepository.js';
+import StateService from './stateService.js';
 
 const stateService = new StateService({
   stateRepository: new StateRepository(),

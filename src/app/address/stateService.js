@@ -1,5 +1,5 @@
-import { generateErrorReturn } from '../../utils/exceptions/expressReturnError';
-import StateValidation from './stateValidation';
+import { generateErrorReturn } from '../../utils/exceptions/expressReturnError.js';
+import StateValidation from './stateValidation.js';
 
 class StateService {
   constructor({ stateRepository }) {

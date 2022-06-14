@@ -1,5 +1,5 @@
-import { generateErrorReturn } from '../../utils/exceptions/expressReturnError';
-import UserValdidation from './userValidation';
+import { generateErrorReturn } from '../../utils/exceptions/expressReturnError.js';
+import UserValdidation from './userValidation.js';
 
 class UserService {
   constructor({ userRepository }) {

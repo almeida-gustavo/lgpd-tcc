@@ -1,4 +1,4 @@
-import ValidateException from './validate';
+import ValidateException from './validate.js';
 
 export const generateErrorReturn = ({ res, status = 400, errUrl, errors }) =>
   res

@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 import jwt from 'jsonwebtoken';
 
-import User from '../../database/models/User';
-import authConfig from '../../config/auth';
+import User from '../../database/models/User.js';
+import authConfig from '../../config/auth.js';
 
 class UserService {
   async login(req, res) {

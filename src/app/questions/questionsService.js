@@ -1,4 +1,4 @@
-import { generateErrorReturn } from '../../utils/exceptions/expressReturnError';
+import { generateErrorReturn } from '../../utils/exceptions/expressReturnError.js';
 
 class UserService {
   constructor({ questionsRepository }) {
