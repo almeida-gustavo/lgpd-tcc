@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon index.js",
     "migrate": "npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
-    "start": "node -r esm src/server.js"
+    "start": "node -r esm index.js"
   },
   "keywords": [],
   "author": "",
